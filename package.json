@@ -3,19 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "npm install",
+    "prestart": "npm install && npm run build",
     "dev": "nodemon -w src src/app.ts",
     "build": "tsc -p .",
     "pretest": "tsc -p .",
     "start": "node build/app.js",
-    "test": "NO_LOGS=true jest test"
+    "test": "NO_LOGS=true jest test --runInBand --force-exit"
   },
   "dependencies": {
+    "@types/jest": "^27.4.1",
     "@types/mongoose": "^5.10.5",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
-    "debug": "~4.1.1",
+    "debug": "^4.3.3",
     "fastify": "^3.27.2",
     "fastify-env": "^2.1.1",
     "fastify-mongodb": "^4.1.1",
@@ -30,10 +31,9 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.54",
-    "@types/jest": "^26.0.7",
-    "jest": "^26.1.0",
+    "jest": "^27.5.1",
     "jest-extended": "^0.11.5",
     "jest-junit": "^11.1.0",
-    "ts-jest": "^26.1.4"
+    "ts-jest": "^27.1.3"
   }
 }
